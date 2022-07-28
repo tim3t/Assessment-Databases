@@ -2,13 +2,14 @@
 
 from wtforms import SelectField, StringField
 from flask_wtf import FlaskForm
-from wtforms.validators import InputRequired
+from wtforms.validators import InputRequired, Optional
 
 
 class PlaylistForm(FlaskForm):
     """Form for adding playlists."""
 
-    # Add the necessary code to use this form
+    name = StringField("Name", validators=[InputRequired()])
+    description = StringField("Description", validators=[Optional()], default="No description given")    
 
 
 class SongForm(FlaskForm):
